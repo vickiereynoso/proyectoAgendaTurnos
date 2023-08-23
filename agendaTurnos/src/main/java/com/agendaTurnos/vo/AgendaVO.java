@@ -37,7 +37,5 @@ public class AgendaVO {
 	public String toString() {
 		return "AgendaVO [cantTurnosXdia=" + cantTurnosXdia + ", turnos=" + turnos + ", pacientes=" + pacientes + "]";
 	}
-
-	
 	
 }
