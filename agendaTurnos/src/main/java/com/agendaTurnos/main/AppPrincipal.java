@@ -13,7 +13,7 @@ public class AppPrincipal {
 		AgendaDAO.crearTabla();
 		PacienteDAO.crearTabla();
 		TurnoDAO.crearTabla();
-		
+		ProfesionalDAO.crearTabla();
 		
 		
 		
