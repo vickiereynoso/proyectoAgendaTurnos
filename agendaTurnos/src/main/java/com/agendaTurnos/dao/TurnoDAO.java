@@ -12,13 +12,14 @@ import com.agendaTurnos.vo.TurnoVO;
 public class TurnoDAO {
 
 	//CREAR TABLA TURNOS:
-	
+
 		public static void crearTabla() {
 			try {
 				Connection conexion = Conexion.conectar();			
 			    String sql = "CREATE TABLE TURNOS " +
 	            "(id INTEGER auto_increment," +
 			    " idpaciente INTEGER ," +
+			    " idprofesional INTEGER ," +
 	            " fecha VARCHAR(50), " + 
 	            " hora VARCHAR(50), " + 
 	            " PRIMARY KEY ( id ))"; 
@@ -40,11 +41,12 @@ public class TurnoDAO {
 			try {
 				
 				Connection conexion = Conexion.conectar();			
-				String sql = "INSERT INTO TURNOS(IDPACIENTE, FECHA, HORA) VALUES (?,?,?)";
+				String sql = "INSERT INTO TURNOS(IDPACIENTE, IDPROFESIONAL, FECHA, HORA) VALUES (?,?,?)";
 				PreparedStatement stmt = conexion.prepareStatement(sql);
 				stmt.setInt(1, t.getPaciente().getId());
-				stmt.setString(2, t.getFecha());
-				stmt.setString(3, t.getHora());
+				stmt.setInt(2, t.getProfesional().getId());
+				stmt.setString(3, t.getFecha());
+				stmt.setString(4, t.getHora());
 				stmt.execute();
 				System.out.println("El turno fue ingresado correctamente");
 				stmt.close();
@@ -79,7 +81,7 @@ public class TurnoDAO {
 		public static void modificar(TurnoVO turno) {
 			try {
 				Connection conexion = Conexion.conectar();
-				String sql = "UPDATE TURNOS SET IDPACIENTE = '" + turno.getPaciente().getId() +"' , FECHA = '" 
+				String sql = "UPDATE TURNOS SET IDPACIENTE = '" + turno.getPaciente().getId()+ "', IDPROFESIONAL = '"+ turno.getProfesional().getId() +"' , FECHA = '" 
 						+ turno.getFecha()+"', HORA = '"+ turno.getHora()+ "'WHERE ID = " + turno.getId();
 				Statement stmt = conexion.createStatement();
 				stmt.execute(sql);
@@ -109,6 +111,7 @@ public class TurnoDAO {
 			while(datos.next()) {
 				System.out.println("ID: "+ datos.getInt("id"));
 				System.out.println("IDPACIENTE: "+ datos.getInt("idpaciente"));
+				System.out.println("IDPROFESIONAL: "+ datos.getInt("idprofesional"));
 				System.out.println("FECHA: "+ datos.getString("fecha"));
 				System.out.println("HORA: "+ datos.getString("hora"));
 				System.out.println("-----------------------------------");

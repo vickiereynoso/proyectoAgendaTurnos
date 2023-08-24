@@ -42,7 +42,7 @@ public class ProfesionalDAO {
 				try {
 					
 					Connection conexion = Conexion.conectar();			
-					String sql = "INSERT INTO PROFESIONALES(DNI, NOMBRE, APELLIDO, EMAIL, TELEFONO) VALUES (?,?,?)";
+					String sql = "INSERT INTO PROFESIONALES(DNI, NOMBRE, APELLIDO, EMAIL, TELEFONO) VALUES (?,?,?,?,?)";
 					PreparedStatement stmt = conexion.prepareStatement(sql);
 					stmt.setInt(1, p.getDni());
 					stmt.setString(2, p.getNombre());

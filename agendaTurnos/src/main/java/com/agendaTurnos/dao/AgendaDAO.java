@@ -25,8 +25,6 @@ public class AgendaDAO {
 	            " turnosXdia INTEGER ," +
 	            " idprofesional INTEGER ," +
 	            " idespecialidad INTEGER ," +
-			    " idturnos INTEGER ," +
-			    " idpacientes INTEGER ," +
 	            " PRIMARY KEY ( id ))"; 
 				Statement stmt = conexion.createStatement();
 				stmt.execute(sql);
@@ -46,13 +44,11 @@ public class AgendaDAO {
 			try {
 				
 				Connection conexion = Conexion.conectar();			
-				String sql = "INSERT INTO AGENDA(TURNOSXDIA, IDPROFESIONAL, IDESPECIALIDAD, IDTURNOS, IDPACIENTES) VALUES (?,?,?)";
+				String sql = "INSERT INTO AGENDA(TURNOSXDIA, IDPROFESIONAL, IDESPECIALIDAD) VALUES (?,?,?)";
 				PreparedStatement stmt = conexion.prepareStatement(sql);
 				stmt.setInt(1, a.getTurnosXdia());
 				stmt.setInt(2, a.getIdprofesional());
 				stmt.setInt(3, a.getIdespecialidad());
-				stmt.setInt(4, a.getIdturnos());
-				stmt.setInt(5, a.getIdpacientes());
 				stmt.execute();
 				System.out.println("La agenda fue creada correctamente");
 				stmt.close();
@@ -108,7 +104,7 @@ public class AgendaDAO {
 			try {
 				Connection conexion = Conexion.conectar();
 				String sql = "UPDATE AGENDA SET TURNOSXDIA = '" + agenda.getTurnosXdia() +"' , IDPROFESIONAL = '" 
-						+ agenda.getIdprofesional()+"', IDESPECIALIDAD = '"+ agenda.getIdespecialidad()+ "', IDTURNOS = '"+ agenda.getIdturnos()+ "', IDPACIENTES = '"+ agenda.getIdpacientes() +"'WHERE ID = " + agenda.getId();
+						+ agenda.getIdprofesional()+"', IDESPECIALIDAD = '"+ agenda.getIdespecialidad() +"'WHERE ID = " + agenda.getId();
 				Statement stmt = conexion.createStatement();
 				stmt.execute(sql);
 				System.out.println("Agenda modificada.");
@@ -139,8 +135,6 @@ public class AgendaDAO {
 					System.out.println("TURNOSXDIA: "+ datos.getInt("turnosXdia"));
 					System.out.println("IDPROFESIONAL: "+ datos.getInt("idprofesional"));
 					System.out.println("IDESPECIALIDAD: "+ datos.getInt("idespecialidad"));
-					System.out.println("IDTURNOS: "+ datos.getInt("idturnos"));
-					System.out.println("IDPACIENTES: "+ datos.getInt("idpacientes"));
 					System.out.println("-----------------------------------");
 				}
 			}catch(Exception e) {

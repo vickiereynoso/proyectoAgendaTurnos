@@ -8,8 +8,6 @@ public class AgendaVO {
 	private int turnosXdia;
 	private int idprofesional;
 	private int idespecialidad;
-	private int idturnos;
-	private int idpacientes;
 	
 	public AgendaVO(int turnosXdia) {
 		super();
@@ -49,28 +47,11 @@ public class AgendaVO {
 		this.idespecialidad = idespecialidad;
 	}
 
-	public int getIdturnos() {
-		return idturnos;
-	}
-
-	public void setIdturnos(int idturnos) {
-		this.idturnos = idturnos;
-	}
-
-	public int getIdpacientes() {
-		return idpacientes;
-	}
-
-	public void setIdpacientes(int idpacientes) {
-		this.idpacientes = idpacientes;
-	}
-
 
 	@Override
 	public String toString() {
 		return "AgendaVO [id=" + id + ", turnosXdia=" + turnosXdia + ", idprofesional=" + idprofesional
-				+ ", idespecialidad=" + idespecialidad + ", idturnos=" + idturnos + ", idpacientes=" + idpacientes
-				+ "]";
+				+ ", idespecialidad=" + idespecialidad + "]";
 	}
 
 }

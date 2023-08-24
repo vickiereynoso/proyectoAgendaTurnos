@@ -4,13 +4,15 @@ public class TurnoVO {
 
 	private int id;
 	private PacienteVO paciente;
+	private ProfesionalVO profesional;
 	private boolean asistencia=false;
 	private String fecha;
 	private String hora;
 	
-	public TurnoVO(PacienteVO paciente, boolean asistencia, String fecha, String hora) {
+	public TurnoVO(PacienteVO paciente, ProfesionalVO profesional, boolean asistencia, String fecha, String hora) {
 		super();
 		this.paciente = paciente;
+		this.profesional = profesional;
 		this.asistencia = asistencia;
 		this.fecha = fecha;
 		this.hora = hora;
@@ -30,6 +32,14 @@ public class TurnoVO {
 
 	public void setPaciente(PacienteVO paciente) {
 		this.paciente = paciente;
+	}
+
+	public ProfesionalVO getProfesional() {
+		return profesional;
+	}
+
+	public void setProfesional(ProfesionalVO profesional) {
+		this.profesional = profesional;
 	}
 
 	public boolean isAsistencia() {
@@ -58,8 +68,10 @@ public class TurnoVO {
 
 	@Override
 	public String toString() {
-		return "TurnoVO [id=" + id + ", paciente=" + paciente + ", asistencia=" + asistencia + ", fecha=" + fecha
-				+ ", hora=" + hora + "]";
+		return "TurnoVO [id=" + id + ", paciente=" + paciente + ", profesional=" + profesional + ", asistencia="
+				+ asistencia + ", fecha=" + fecha + ", hora=" + hora + "]";
 	}
+
+	
 	
 }
