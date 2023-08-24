@@ -9,9 +9,8 @@ public class PacienteVO {
 	private String email;
 	private String telefono;
 	
-	public PacienteVO(int id, int dni, String nombre, String apellido, String email, String telefono) {
+	public PacienteVO(int dni, String nombre, String apellido, String email, String telefono) {
 		super();
-		this.id = id;
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;

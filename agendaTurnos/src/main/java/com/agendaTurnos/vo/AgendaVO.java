@@ -4,66 +4,73 @@ import java.util.ArrayList;
 
 public class AgendaVO {
 
-	private int cantTurnosXdia;
-	private String profesional;
-	private String especialidad;
-	private ArrayList<TurnoVO>turnos;
-	private ArrayList<PacienteVO>pacientes;
+	private int id;
+	private int turnosXdia;
+	private int idprofesional;
+	private int idespecialidad;
+	private int idturnos;
+	private int idpacientes;
 	
-	public AgendaVO(int cantTurnosXdia, String profesional, String especialidad) {
+	public AgendaVO(int turnosXdia) {
 		super();
-		this.cantTurnosXdia = cantTurnosXdia;
-		this.profesional = profesional;
-		this.especialidad = especialidad;
-		this.turnos = new ArrayList<>();
-		this.pacientes = new ArrayList<>();
+		this.turnosXdia = turnosXdia;
 	}
 
-	public int getCantTurnosXdia() {
-		return cantTurnosXdia;
+	
+	public int getId() {
+		return id;
 	}
 
-	public void setCantTurnosXdia(int cantTurnosXdia) {
-		this.cantTurnosXdia = cantTurnosXdia;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getProfesional() {
-		return profesional;
+	public int getTurnosXdia() {
+		return turnosXdia;
 	}
 
-	public void setProfesional(String profesional) {
-		this.profesional = profesional;
+	public void setCantTurnosXdia(int turnosXdia) {
+		this.turnosXdia = turnosXdia;
 	}
 
-	public String getEspecialidad() {
-		return especialidad;
+	public int getIdprofesional() {
+		return idprofesional;
 	}
 
-	public void setEspecialidad(String especialidad) {
-		this.especialidad = especialidad;
+	public void setIdprofesional(int idprofesional) {
+		this.idprofesional = idprofesional;
 	}
 
-	public ArrayList<TurnoVO> getTurnos() {
-		return turnos;
+	public int getIdespecialidad() {
+		return idespecialidad;
 	}
 
-	public void setTurnos(ArrayList<TurnoVO> turnos) {
-		this.turnos = turnos;
+	public void setIdespecialidad(int idespecialidad) {
+		this.idespecialidad = idespecialidad;
 	}
 
-	public ArrayList<PacienteVO> getPacientes() {
-		return pacientes;
+	public int getIdturnos() {
+		return idturnos;
 	}
 
-	public void setPacientes(ArrayList<PacienteVO> pacientes) {
-		this.pacientes = pacientes;
+	public void setIdturnos(int idturnos) {
+		this.idturnos = idturnos;
 	}
+
+	public int getIdpacientes() {
+		return idpacientes;
+	}
+
+	public void setIdpacientes(int idpacientes) {
+		this.idpacientes = idpacientes;
+	}
+
 
 	@Override
 	public String toString() {
-		return "AgendaVO [cantTurnosXdia=" + cantTurnosXdia + ", profesional=" + profesional + ", especialidad="
-				+ especialidad + ", turnos=" + turnos + ", pacientes=" + pacientes + "]";
+		return "AgendaVO [id=" + id + ", turnosXdia=" + turnosXdia + ", idprofesional=" + idprofesional
+				+ ", idespecialidad=" + idespecialidad + ", idturnos=" + idturnos + ", idpacientes=" + idpacientes
+				+ "]";
 	}
-		
-	
+
 }

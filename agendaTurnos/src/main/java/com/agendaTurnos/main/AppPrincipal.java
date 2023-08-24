@@ -1,7 +1,7 @@
 package com.agendaTurnos.main;
 
 import com.agendaTurnos.conexion.*;
-import com.agendaTurnos.dao.PacienteDAO;
+import com.agendaTurnos.dao.*;
 
 public class AppPrincipal {
 
@@ -9,11 +9,11 @@ public class AppPrincipal {
 		// TODO Auto-generated method stub
 		
 		Conexion.conectar();
-//		ClienteVO cliente = new ClienteVO(12345678,"Ximena", "xime4422288@gmail.com");
-//		ClienteDAO cDAO = new ClienteDAO();
-//		cDAO.insertar(cliente);
-		PacienteDAO pDAO = new PacienteDAO();
+		
+		AgendaDAO.crearTabla();
 		PacienteDAO.crearTabla();
+		TurnoDAO.crearTabla();
+		
 		
 		
 		
