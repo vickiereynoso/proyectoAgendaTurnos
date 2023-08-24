@@ -14,6 +14,7 @@ public class AppPrincipal {
 		PacienteDAO.crearTabla();
 		TurnoDAO.crearTabla();
 		ProfesionalDAO.crearTabla();
+		EspecialidadDAO.crearTabla();
 		
 		
 		

@@ -137,10 +137,10 @@ public class AgendaDAO {
 				while(datos.next()) {
 					System.out.println("ID: "+ datos.getInt("id"));
 					System.out.println("TURNOSXDIA: "+ datos.getInt("turnosXdia"));
-					System.out.println("IDPROFESIONAL: "+ datos.getString("idprofesional"));
-					System.out.println("IDESPECIALIDAD: "+ datos.getString("idespecialidad"));
-					System.out.println("IDTURNOS: "+ datos.getString("idturnos"));
-					System.out.println("IDPACIENTES: "+ datos.getString("idpacientes"));
+					System.out.println("IDPROFESIONAL: "+ datos.getInt("idprofesional"));
+					System.out.println("IDESPECIALIDAD: "+ datos.getInt("idespecialidad"));
+					System.out.println("IDTURNOS: "+ datos.getInt("idturnos"));
+					System.out.println("IDPACIENTES: "+ datos.getInt("idpacientes"));
 					System.out.println("-----------------------------------");
 				}
 			}catch(Exception e) {
