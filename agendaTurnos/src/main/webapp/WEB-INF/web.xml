@@ -10,8 +10,38 @@
   	<description></description>
   	<servlet-class>com.agendaTurnos.control.Control1</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>IngresoEspecializaciones</servlet-name>
+  	<display-name>IngresoEspecializaciones</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.IngresoEspecializaciones</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegistroPacientes</servlet-name>
+  	<display-name>RegistroPacientes</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.RegistroPacientes</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegistroProfesionales</servlet-name>
+  	<display-name>RegistroProfesionales</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.RegistroProfesionales</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Control1</servlet-name>
   	<url-pattern>/Control1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>IngresoEspecializaciones</servlet-name>
+  	<url-pattern>/IngresoEspecializaciones</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegistroPacientes</servlet-name>
+  	<url-pattern>/RegistroPacientes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegistroProfesionales</servlet-name>
+  	<url-pattern>/RegistroProfesionales</url-pattern>
   </servlet-mapping>
 </web-app>

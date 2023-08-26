@@ -41,7 +41,7 @@ public class TurnoDAO {
 			try {
 				
 				Connection conexion = Conexion.conectar();			
-				String sql = "INSERT INTO TURNOS(IDPACIENTE, IDPROFESIONAL, FECHA, HORA) VALUES (?,?,?)";
+				String sql = "INSERT INTO TURNOS(IDPACIENTE, IDPROFESIONAL, FECHA, HORA) VALUES (?,?,?,?)";
 				PreparedStatement stmt = conexion.prepareStatement(sql);
 				stmt.setInt(1, t.getPaciente().getId());
 				stmt.setInt(2, t.getProfesional().getId());

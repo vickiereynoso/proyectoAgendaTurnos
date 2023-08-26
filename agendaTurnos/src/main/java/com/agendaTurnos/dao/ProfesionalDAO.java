@@ -20,7 +20,8 @@ public class ProfesionalDAO {
 		            "(id INTEGER auto_increment," +
 				    " dni INTEGER not NULL," +
 		            " nombre VARCHAR(50), " + 
-		            " apellido VARCHAR(50), " + 
+		            " apellido VARCHAR(50), " +
+		            " especialidad VARCHAR(50), " +
 		            " email VARCHAR(50), " +
 		            " telefono VARCHAR(15),"+
 		            " PRIMARY KEY ( id ))"; 
@@ -42,13 +43,14 @@ public class ProfesionalDAO {
 				try {
 					
 					Connection conexion = Conexion.conectar();			
-					String sql = "INSERT INTO PROFESIONALES(DNI, NOMBRE, APELLIDO, EMAIL, TELEFONO) VALUES (?,?,?,?,?)";
+					String sql = "INSERT INTO PROFESIONALES(DNI, NOMBRE, APELLIDO, ESPECIALIDAD, EMAIL, TELEFONO) VALUES (?,?,?,?,?,?)";
 					PreparedStatement stmt = conexion.prepareStatement(sql);
 					stmt.setInt(1, p.getDni());
 					stmt.setString(2, p.getNombre());
 					stmt.setString(3, p.getApellido());
-					stmt.setString(4, p.getEmail());
-					stmt.setString(5, p.getTelefono());
+					stmt.setString(4, p.getEspecialidad());
+					stmt.setString(5, p.getEmail());
+					stmt.setString(6, p.getTelefono());
 					stmt.execute();
 					System.out.println("El profesional fue ingresado correctamente");
 					stmt.close();
@@ -84,7 +86,7 @@ public class ProfesionalDAO {
 				try {
 					Connection conexion = Conexion.conectar();
 					String sql = "UPDATE PACIENTES SET DNI = '" + profesional.getDni() +"' , NOMBRE = '" 
-							+ profesional.getNombre()+"', APELLIDO = '"+ profesional.getApellido()+"', EMAIL = '" + profesional.getEmail()+ "', TELEFONO = '" + profesional.getTelefono()+ "'WHERE ID = " + profesional.getId();
+							+ profesional.getNombre()+"', APELLIDO = '"+ profesional.getApellido()+ "', ESPECIALIDAD = '"+ profesional.getEspecialidad() +"', EMAIL = '" + profesional.getEmail()+ "', TELEFONO = '" + profesional.getTelefono()+ "'WHERE ID = " + profesional.getId();
 					Statement stmt = conexion.createStatement();
 					stmt.execute(sql);
 					System.out.println("Profesional modificado.");
@@ -115,6 +117,7 @@ public class ProfesionalDAO {
 						System.out.println("DNI: "+ datos.getInt("dni"));
 						System.out.println("Nombre: "+ datos.getString("nombre"));
 						System.out.println("Apellido: "+ datos.getString("apellido"));
+						System.out.println("Especialidad: "+ datos.getString("especialidad"));
 						System.out.println("Email: "+ datos.getString("email"));
 						System.out.println("Telefono: "+ datos.getString("telefono"));
 						System.out.println("-----------------------------------");

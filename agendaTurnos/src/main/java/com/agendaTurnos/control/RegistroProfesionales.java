@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.agendaTurnos.dao.*;
-import com.agendaTurnos.vo.*;
+import com.agendaTurnos.dao.ProfesionalDAO;
+import com.agendaTurnos.vo.ProfesionalVO;
 
 /**
- * Servlet implementation class Control
+ * Servlet implementation class RegistroProfesionales
  */
-public class Control1 extends HttpServlet {
+public class RegistroProfesionales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Control1() {
+    public RegistroProfesionales() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +30,7 @@ public class Control1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		response.setContentType("text/html");
 		PrintWriter x = response.getWriter();
@@ -37,12 +38,10 @@ public class Control1 extends HttpServlet {
 		int dni = Integer.parseInt(request.getParameter("dni"));	
 		String nombre = request.getParameter("nombre"); //Del form recibe el name, NO el id.
 		String apellido = request.getParameter("apellido");
+		String especialidad = request.getParameter("especialidad");
 		String email = request.getParameter("email");
 		String telefono = request.getParameter("telefono");
-		
-		System.out.println(nombre+ email+ dni);
-		
-		ProfesionalVO profesional = new ProfesionalVO(dni,nombre,apellido,email,telefono);
+		ProfesionalVO profesional = new ProfesionalVO(dni,nombre,apellido,especialidad,email,telefono);
 		ProfesionalDAO pDAO = new ProfesionalDAO();
 		pDAO.insertar(profesional);
 		x.print("El registro fue generado correctamente.");
@@ -51,8 +50,6 @@ public class Control1 extends HttpServlet {
 			e.printStackTrace();
 			x.print("Upss. Tenemos inconvenientes para guardar.");
 		}
-		
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

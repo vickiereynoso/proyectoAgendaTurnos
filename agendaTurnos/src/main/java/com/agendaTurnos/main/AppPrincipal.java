@@ -10,11 +10,11 @@ public class AppPrincipal {
 		
 		Conexion.conectar();
 		
-		AgendaDAO.crearTabla();
+		//AgendaDAO.crearTabla();
 		//PacienteDAO.crearTabla();
-		TurnoDAO.crearTabla();
+		//TurnoDAO.crearTabla();
 		//ProfesionalDAO.crearTabla();
-		//EspecialidadDAO.crearTabla();
+		EspecialidadDAO.crearTabla();
 		
 		
 		

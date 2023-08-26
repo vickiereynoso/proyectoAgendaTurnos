@@ -38,7 +38,7 @@ public class EspecialidadDAO {
 				try {
 					
 					Connection conexion = Conexion.conectar();			
-					String sql = "INSERT INTO ESPECIALIDADES(ESPECIALIDAD) VALUES (?,?,?)";
+					String sql = "INSERT INTO ESPECIALIDADES(ESPECIALIDAD) VALUES (?)";
 					PreparedStatement stmt = conexion.prepareStatement(sql);
 					stmt.setString(1, e.getEspecialidad());
 					stmt.execute();
