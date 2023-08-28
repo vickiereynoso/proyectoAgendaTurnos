@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-	<h1>Clínica de Salud</h1>
-<!--	<p>Segundo texto</p>-->
-<!--	<img src="images/Image20230814203033.jpg">-->
+<style><%@ include file="css/estilos.css" %></style>
+<%@ include file="index1.jsp" %>
+<br>
+<br>
 	<h2>Ingrese área de Especialidad:</h2>
 	<form method="get" action="IngresoEspecializaciones">
 	<label for="especialidad">Especialidad:</label> <input type="text" name="especialidad" id="especialidad"><br>
-	<input type="submit" value="Registrar datos">
+	<input type="submit" value="Registrar datos" name="submit" id="submit">
 	</form>
 </body>
 </html>

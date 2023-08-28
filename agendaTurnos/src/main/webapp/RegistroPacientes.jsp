@@ -10,6 +10,9 @@
 </head>
 <body>
 <style><%@ include file="css/estilos.css" %></style>
+<%@ include file="index1.jsp" %>
+<br>
+<br>
 	<h2>Ingrese datos del paciente:</h2>
 	<form method="get" action="RegistroPacientes" >
 	<label for="dni">DNI:</label> <input type="number" name="dni" id="dni"><br>

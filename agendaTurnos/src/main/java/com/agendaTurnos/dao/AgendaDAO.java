@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.agendaTurnos.conexion.Conexion;
 import com.agendaTurnos.vo.AgendaVO;
 import com.agendaTurnos.vo.PacienteVO;
+import com.agendaTurnos.vo.ProfesionalVO;
 import com.agendaTurnos.vo.TurnoVO;
 
 public class AgendaDAO {
@@ -177,5 +178,65 @@ public class AgendaDAO {
 			return existe;	
 		}
 
+		
+		
+		public static void mostrarProfesionalesPorAreaProfesional(String especialidad) throws SQLException { 
+
+//			Select * from Profesionales 
+//			where especialidad = 'Dermatologia';
+			
+			Connection conexion = Conexion.conectar();
+			Statement stmt = conexion.createStatement();
+//			'" + especialidad+"'"
+			try {
+				String query = " SELECT * FROM PROFESIONALES WHERE ESPECIALIDAD = '" + especialidad+"'";
+				
+				ResultSet datos = stmt.executeQuery(query);
+				 
+				while(datos.next()) {
+					if(datos.getString("especialidad").equalsIgnoreCase(especialidad) ) {
+						System.out.println("NOMBRE: "+ datos.getString("nombre"));
+						System.out.println("APELLIDO: "+ datos.getString("apellido"));
+						System.out.println("ESPECIALIDAD: "+ datos.getString("especialidad"));
+						System.out.println("EMAIL: "+ datos.getString("email"));
+						System.out.println("TELEFONO: "+ datos.getString("telefono"));
+					}
+				}
+			}catch(Exception e) {
+				System.out.println("No se pudo mostrar los datos.");
+				e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+			}finally {
+				stmt.close();
+				conexion.close();
+			}
+		}
+		
+	
+		public static ArrayList<ProfesionalVO> obtenerProfesionalesPorAreaProfesional(String especialidad) throws SQLException { 
+
+//			Select * from Profesionales 
+//			where especialidad = 'Dermatologia';
+			ArrayList<ProfesionalVO> empleados = new ArrayList<>();
+			Connection conexion = Conexion.conectar();
+			Statement stmt = conexion.createStatement();
+			try {
+				String query = " SELECT * FROM PROFESIONALES WHERE ESPECIALIDAD = '" + especialidad+"'";;
+				ResultSet datos = stmt.executeQuery(query);
+				while(datos.next()) {
+					if(datos.getString("especialidad").equalsIgnoreCase(especialidad)) {
+						empleados.add(new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono")));
+//					System.out.println("Se encontró coincidencia.");
+					}
+				}
+			}catch(Exception e) {
+				System.out.println("No se pudo mostrar los datos.");
+				e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+			}finally {
+				stmt.close();
+				conexion.close();
+			}
+			return empleados;
+		}
+		
 	
 }

@@ -1,12 +1,20 @@
 @charset "ISO-8859-1";
 
+*{
+border: 0;
+padding: 0;
+margin: 0;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body{
+	margin: 0px;
+	padding: 0;
 	font-family: "Arial";
-  	padding: 10px;
+/*   	padding: 10px; */
   	background: #f1f1f1;
   	color: #2a3132;
 
@@ -56,7 +64,29 @@ input[type=text],[type=number],[type=email],select, textarea {
 
 /* menu */
 
+#menu{
+
+    background-color: #fff;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+    color: #888;
+    display: block;
+/*     margin: 8px 22px 8px 22px; */
+	
+    overflow: hidden;
+    width: 100%; 
+    margin: 0;
+    padding: 0;
+
+	
+}
+
 #menu ul {
+    top: 0;
+    width: 100%;
+    left: 0;
+    position: fixed;
  list-style:none;
  margin:0;
  padding:0;
@@ -130,83 +160,4 @@ input[type=text],[type=number],[type=email],select, textarea {
 #menu ul li:hover > ul {
  display:block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* /* -------------------------------------------------- */ */
-
-/* ul { */
-/*     list-style-type: none; */
-/*     margin: 0; */
-/*     padding: 0; */
-/*     overflow: hidden; */
-/*     border: 1px solid #e7e7e7; */
-/*     background-color: #f3f3f3; */
-/* } */
-
-/* li { */
-/*     float: left; */
-/* } */
-
-/* li a { */
-/*     display: block; */
-/*     color: #666; */
-/*     text-align: center; */
-/*     padding: 14px 16px; */
-/*     text-decoration: none; */
-/* } */
-
-/* /* Change the link color to #111 (black) on hover */ */
-/* li a:hover { */
-/*     background-color: lightblue; */
-/* } */
-
-/* /* Hasta acá creamos una barra de navegación horizontal básico con un color de fondo oscuro  */
-/* y cambia el color de fondo de los enlaces cuando el usuario mueve el ratón sobre ellos. */ */
-
-/* /* -------------------------------------------------- */ */
-
-
-
-/* /* Añadimos un "active" clase para el enlace actual para que el usuario sepa  */
-/*  en qué página está: */ */
-/* .active { */
-/*     background-color: #4CAF50; */
-/* } */
-
-
-
-
-/* /* -------------------------------------------------- */ */
-
-/* /* Añadimos la border-right propiedad a <li> para crear separadores de enlace: */ */
-/* li { */
-/*     border-right: 1px solid #bbb; */
-/* } */
-
-/* li:last-child { */
-/*     border-right: none; */
-/* } */
-/* /* -------------------------------------------------- */ */
-
-
-
-/* /* Fijamos barra de navegación en la parte superior o inferior de la página,  */
-/* incluso cuando el usuario se desplaza por la página: */ */
-/* ul { */
-/*     position: fixed; */
-/*     top: 0; */
-/*     width: 100%; */
-/* } */
 

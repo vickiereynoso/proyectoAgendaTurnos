@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>com.agendaTurnos.control.RegistroProfesionales</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BusquedaDeProfesionalPorArea</servlet-name>
+  	<display-name>BusquedaDeProfesionalPorArea</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.BusquedaDeProfesionalPorArea</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Control1</servlet-name>
   	<url-pattern>/Control1</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>RegistroProfesionales</servlet-name>
   	<url-pattern>/RegistroProfesionales</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BusquedaDeProfesionalPorArea</servlet-name>
+  	<url-pattern>/BusquedaDeProfesionalPorArea</url-pattern>
   </servlet-mapping>
 </web-app>

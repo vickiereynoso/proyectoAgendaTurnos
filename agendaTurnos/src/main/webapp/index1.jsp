@@ -12,21 +12,10 @@
 <body>
 <style><%@ include file="css/estilos.css" %></style>
 
-<!-- <ul>
-  <li><a href="#">Home</a></li>
-  <li><div class="dropdown">
-  <button class="dropbtn"> Pacientes </button>
-  <div class="dropdown-content">
-    <a href="#"> Pacientes </a>
-    <a href="RegistroProfesionales.jsp"> Registro Pacientes </a>
-  </div>
-</div></li>
-  <li><a href="RegistroProfesionales.jsp">Registro Profesionales</a></li>
-</ul> -->
 
 <nav id="menu">
 <ul>
- <li><a href="#">HOME</a></li>
+ <li><a href="index1.jsp">HOME</a></li>
  <li><a href="#">Pacientes</a>
 	 <ul>
 	 <li><a href="RegistroPacientes.jsp">Registro Pacientes</a></li>

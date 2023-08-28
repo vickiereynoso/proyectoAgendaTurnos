@@ -5,6 +5,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="com.agendaTurnos.conexion.*" %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,9 @@
 </head>
 <body>
 <style><%@ include file="css/estilos.css" %></style>
+<%@ include file="index1.jsp" %>
+<br>
+<br>
 	<h2>Ingrese datos del profesional:</h2>
 	
    	<% try{ 
