@@ -134,32 +134,28 @@ public class ProfesionalDAO {
 			
 			//BUSCAR REGISTRO : 
 			
-			public static boolean buscar(int dni) throws SQLException { 
+			public static ProfesionalVO buscar(int dni) throws SQLException { 
 				
-				boolean existe = false;
+				ProfesionalVO profesional = null;
 				Connection conexion = Conexion.conectar();
 				Statement stmt = conexion.createStatement();	
 				try {
 					String query = "SELECT * FROM PROFESIONALES WHERE DNI = " + dni;
 					ResultSet datos = stmt.executeQuery(query); //execute query me retornará todos los datos.
 					//System.out.println("Los datos fueron mostrados correctamente.");
-					while(datos.next() && existe == false) {
+					while(datos.next() && profesional == null) {
 						if(datos.getInt("dni") == dni) {			
-							//System.out.println("El cliente ya existe en la base de datos:");
-							existe = true;
-						}else {
-							System.out.println("No se ha encontrado el profesional.");
-							existe = false;
+							profesional = new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono"));
 							}
 						};
 				}catch(Exception e) {
-					System.out.println("No se pudo mostrar los profesionales.");
+					System.out.println("ERROR.");
 					e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
 				}finally {
 					stmt.close();
 					conexion.close();
 				}
-				return existe;	
+				return profesional;	
 			}
 
 	

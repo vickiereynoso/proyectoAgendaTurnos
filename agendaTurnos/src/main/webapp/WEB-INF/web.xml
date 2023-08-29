@@ -34,6 +34,12 @@
   	<description></description>
   	<servlet-class>com.agendaTurnos.control.BusquedaDeProfesionalPorArea</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BusquedaPorDNI</servlet-name>
+  	<display-name>BusquedaPorDNI</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.BusquedaPorDNI</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Control1</servlet-name>
   	<url-pattern>/Control1</url-pattern>
@@ -53,5 +59,9 @@
   <servlet-mapping>
   	<servlet-name>BusquedaDeProfesionalPorArea</servlet-name>
   	<url-pattern>/BusquedaDeProfesionalPorArea</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BusquedaPorDNI</servlet-name>
+  	<url-pattern>/BusquedaPorDNI</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -103,7 +103,27 @@
         </section>
     </div>
 
-
+		<div>
+        <section>
+        	<h2>Buscar por DNI:</h2>
+            <div>
+			   	<% try{ 
+					Connection conexion = Conexion.conectar();
+					Statement stmt = conexion.createStatement();
+					String sql ="SELECT * FROM profesionales";
+					ResultSet datos = stmt.executeQuery(sql);
+				%>
+				<form method="get" action="BusquedaPorDNI" >
+				<label for="dni">DNI:</label> <input type="number" name="dni" id="dni"><br>
+				<input type="submit" value="Buscar" name="submit" id="submit">
+				</form>
+				<% 	} catch (Exception e) {
+				e.printStackTrace();
+				} 
+				%>			
+			<div>
+        </section>
+    </div>
 
 		
 </body>

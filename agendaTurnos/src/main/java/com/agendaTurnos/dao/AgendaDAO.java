@@ -225,7 +225,7 @@ public class AgendaDAO {
 				while(datos.next()) {
 					if(datos.getString("especialidad").equalsIgnoreCase(especialidad)) {
 						empleados.add(new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono")));
-//					System.out.println("Se encontró coincidencia.");
+					System.out.println("Se encontró coincidencia.");
 					}
 				}
 			}catch(Exception e) {
