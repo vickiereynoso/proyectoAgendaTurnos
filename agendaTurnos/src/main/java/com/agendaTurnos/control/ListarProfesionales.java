@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.agendaTurnos.dao.ProfesionalDAO;
 import com.agendaTurnos.vo.ProfesionalVO;
-import com.agendaTurnos.dao.*;
 
 /**
- * Servlet implementation class BusquedaDeProfesionalPorArea
+ * Servlet implementation class ListarProfesionales
  */
-public class BusquedaDeProfesionalPorArea extends HttpServlet {
+public class ListarProfesionales extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BusquedaDeProfesionalPorArea() {
+    public ListarProfesionales() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,29 +32,29 @@ public class BusquedaDeProfesionalPorArea extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+         
 		response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();
-        try {
-        String especialidad = request.getParameter("especialidad");
-        //out.println("<a href='index.html'>Add New Employee</a>");  
-        out.println("<h1>Lista de Profesionales en la especialidad elegida:</h1>");  
-          
-        ArrayList<ProfesionalVO> empleados = AgendaDAO.obtenerProfesionalesPorAreaProfesional(especialidad);  
-          
-        //out.print("<table border='1' width='100%'");  
+		PrintWriter out=response.getWriter();  
+		try {
+		ArrayList<ProfesionalVO> profesionales = new ArrayList<ProfesionalVO>();
+		out.println("<a href='index.html'>INICIO</a>");  
+		out.println("<h1>Lista Profesionales</h1>");  
+		   
+		profesionales = ProfesionalDAO.obtenerProfesionales();  
+		 
         out.print("<table cellpadding=\"5\" cellspacing=\"5\" border=\"1\">");
-        out.print("<tr bgcolor=\"lightblue\"><th>DNI</th><th>NOMBRE</th><th>APELLIDO</th><th>ESPECIALIDAD</th><th>EMAIL</th><th>TELÉFONO</th></tr>");  
-        for(ProfesionalVO p : empleados){  
-         out.print("<tr bgcolor=\"lightgrey\"><td>"+p.getDni()+"</td><td>"+p.getNombre()+"</td><td>"+p.getApellido()+"</td><td>"+p.getEspecialidad()+"</td><td>"+p.getEmail()+"</td><td>"+p.getTelefono()+"</td></tr>");  
+        out.print("<tr bgcolor=\"lightblue\"><th>DNI</th><th>NOMBRE</th><th>APELLIDO</th><th>ESPECIALIDAD</th><th>EMAIL</th><th>TELÉFONO</th><th>EDITAR</th><th>ELIMINAR</th></tr>");  
+        for(ProfesionalVO p : profesionales){  
+         out.print("<tr bgcolor=\"lightgrey\"><td>"+p.getDni()+"</td><td>"+p.getNombre()+"</td><td>"+p.getApellido()+"</td><td>"+p.getEspecialidad()+"</td><td>"+p.getEmail()+"</td><td>"+p.getTelefono()+"</td><td><a href='EditServlet?id="+p.getId()+"'>Editar</a></td>"
+         		+"<td><a href='DeleteServlet?id="+p.getId()+"'>Eliminar</a></td></tr>");  
         }  
-        out.print("</table>");  
-        out.close(); 
-		}catch(Exception e){
+		 out.print("</table>");  
+		 out.close();
+		}catch(Exception e) {
 			e.printStackTrace();
 			out.print("Disculpen. Tenemos inconvenientes para mostrar los resultados.");
-			}
 		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

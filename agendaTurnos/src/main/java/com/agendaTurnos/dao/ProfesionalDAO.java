@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.agendaTurnos.conexion.Conexion;
 import com.agendaTurnos.vo.ProfesionalVO;
@@ -158,5 +159,27 @@ public class ProfesionalDAO {
 				return profesional;	
 			}
 
-	
+ 
+			
+			public static ArrayList<ProfesionalVO> obtenerProfesionales() throws SQLException { 				
+				ArrayList<ProfesionalVO> profesionales = new ArrayList<>();
+				Connection conexion = Conexion.conectar();
+				Statement stmt = conexion.createStatement();	
+				try {
+					String query = "SELECT * FROM PROFESIONALES";
+					ResultSet datos = stmt.executeQuery(query); //execute query me retornará todos los datos.
+					//System.out.println("Los datos fueron mostrados correctamente.");
+					while(datos.next()) {
+						profesionales.add(new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono")));
+						};
+				}catch(Exception e) {
+					System.out.println("ERROR.");
+					e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+				}finally {
+					stmt.close();
+					conexion.close();
+				}
+				return profesionales;	
+			}
+			
 }

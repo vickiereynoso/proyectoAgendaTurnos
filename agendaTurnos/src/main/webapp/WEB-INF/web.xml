@@ -40,6 +40,24 @@
   	<description></description>
   	<servlet-class>com.agendaTurnos.control.BusquedaPorDNI</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BusquedaPacientePorDNI</servlet-name>
+  	<display-name>BusquedaPacientePorDNI</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.BusquedaPacientePorDNI</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BusquedaProfesionalPorDNI</servlet-name>
+  	<display-name>BusquedaProfesionalPorDNI</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.BusquedaProfesionalPorDNI</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListarProfesionales</servlet-name>
+  	<display-name>ListarProfesionales</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.ListarProfesionales</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Control1</servlet-name>
   	<url-pattern>/Control1</url-pattern>
@@ -63,5 +81,17 @@
   <servlet-mapping>
   	<servlet-name>BusquedaPorDNI</servlet-name>
   	<url-pattern>/BusquedaPorDNI</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BusquedaPacientePorDNI</servlet-name>
+  	<url-pattern>/BusquedaPacientePorDNI</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BusquedaProfesionalPorDNI</servlet-name>
+  	<url-pattern>/BusquedaProfesionalPorDNI</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListarProfesionales</servlet-name>
+  	<url-pattern>/ListarProfesionales</url-pattern>
   </servlet-mapping>
 </web-app>
