@@ -160,6 +160,29 @@ public class ProfesionalDAO {
 			}
 
  
+			public static ProfesionalVO buscarPorID(int id) throws SQLException { 
+				
+				ProfesionalVO profesional = null;
+				Connection conexion = Conexion.conectar();
+				Statement stmt = conexion.createStatement();	
+				try {
+					String query = "SELECT * FROM PROFESIONALES WHERE ID = " + id;
+					ResultSet datos = stmt.executeQuery(query); //execute query me retornará todos los datos.
+					//System.out.println("Los datos fueron mostrados correctamente.");
+					while(datos.next() && profesional == null) {
+						if(datos.getInt("id") == id) {			
+							profesional = new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono"));
+							}
+						};
+				}catch(Exception e) {
+					System.out.println("ERROR.");
+					e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+				}finally {
+					stmt.close();
+					conexion.close();
+				}
+				return profesional;	
+			}
 			
 			public static ArrayList<ProfesionalVO> obtenerProfesionales() throws SQLException { 				
 				ArrayList<ProfesionalVO> profesionales = new ArrayList<>();
@@ -170,7 +193,7 @@ public class ProfesionalDAO {
 					ResultSet datos = stmt.executeQuery(query); //execute query me retornará todos los datos.
 					//System.out.println("Los datos fueron mostrados correctamente.");
 					while(datos.next()) {
-						profesionales.add(new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono")));
+						profesionales.add(new ProfesionalVO(datos.getInt("id"),datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono")));
 						};
 				}catch(Exception e) {
 					System.out.println("ERROR.");

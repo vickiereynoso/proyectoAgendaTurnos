@@ -11,6 +11,16 @@ public class ProfesionalVO extends PacienteVO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	public ProfesionalVO(int id, int dni, String nombre, String apellido, String email, String telefono,
+			String especialidad) {
+		super(id, dni, nombre, apellido, email, telefono);
+		this.especialidad = especialidad;
+	}
+
+
+
 	public String getEspecialidad() {
 		return especialidad;
 	}

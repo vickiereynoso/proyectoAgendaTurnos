@@ -12,31 +12,56 @@
 <body>
 <style><%@ include file="css/estilos.css" %></style>
 
-
-<nav id="menu">
-<ul>
- <li><a href="index1.jsp">HOME</a></li>
- <li><a href="#">Pacientes</a>
-	 <ul>
-	 <li><a href="RegistroPacientes.jsp">Registro Pacientes</a></li>
-	 <li><a href="MostrarPacientes.jsp">Listado Pacientes</a></li>	 	 
-	 </ul>
- </li>
- <li><a href="#">Profesionales</a>
- 	 <ul>
-	 <li><a href="RegistroProfesionales.jsp">Registro Profesionales</a></li>
-	 <li><a href="MostrarProfesionales.jsp">Listado Profesionales</a></li>	 
-	 </ul>
- </li>
- <li><a href="#">Áreas de Salud</a>
-  	 <ul>
-	 <li><a href="CargaListaEspecializaciones.jsp">Carga Especializaciones</a></li>
-	 <li><a href="MostrarEspecializaciones.jsp">Listado Especializaciones</a></li>	 
-	 </ul>
- </li>
-
-</ul>
-</nav>
+<div class="navbar">
+  <a href="index1.jsp">Inicio</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Profesionales
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="RegistroProfesionales.jsp">Carga Profesionales</a>
+      <a href="MostrarProfesionales.jsp">Listado Profesionales</a>
+      <a href="BuscarProfesionalPorDNI.jsp">Buscar Profesional</a>
+      <a href="BuscarProfesionalPorEspecialidad.jsp">Buscar Por Especialidad</a>
+    </div>
+  </div>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Pacientes
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="RegistroPacientes.jsp">Carga Pacientes</a>
+      <a href="MostrarPacientes.jsp">Listado Pacientes</a>
+      <a href="BuscarPacientePorDNI.jsp">Buscar Paciente</a>
+    </div>
+  </div>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Áreas de Salud
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="CargaListaEspecializaciones.jsp">Carga Especializaciones</a>
+      <a href="MostrarEspecialidades.jsp">Listado Especializaciones</a>
+    </div>
+  </div>  
+  
+  <div class="dropdown">
+    <button class="dropbtn">TURNOS
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="CargaListaTurnos.jsp">Carga Turnos</a>
+      <a href="MostrarTurnos.jsp">Listado Turnos</a>
+      <a href="BuscarTurno.jsp">Buscar Turno</a>
+    </div>
+  </div> 
+  
+  
+  
+</div>
 
 </body>
 </html>

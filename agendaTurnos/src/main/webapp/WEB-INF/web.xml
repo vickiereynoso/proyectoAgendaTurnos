@@ -58,6 +58,24 @@
   	<description></description>
   	<servlet-class>com.agendaTurnos.control.ListarProfesionales</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ListarEspecialidades</servlet-name>
+  	<display-name>ListarEspecialidades</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.ListarEspecialidades</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListarPacientes</servlet-name>
+  	<display-name>ListarPacientes</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.ListarPacientes</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Editar</servlet-name>
+  	<display-name>Editar</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.Editar</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Control1</servlet-name>
   	<url-pattern>/Control1</url-pattern>
@@ -93,5 +111,17 @@
   <servlet-mapping>
   	<servlet-name>ListarProfesionales</servlet-name>
   	<url-pattern>/ListarProfesionales</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListarEspecialidades</servlet-name>
+  	<url-pattern>/ListarEspecialidades</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListarPacientes</servlet-name>
+  	<url-pattern>/ListarPacientes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Editar</servlet-name>
+  	<url-pattern>/Editar</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -18,6 +18,20 @@ public class PacienteVO {
 		this.telefono = telefono;
 	}
 
+	
+	
+	public PacienteVO(int id, int dni, String nombre, String apellido, String email, String telefono) {
+		super();
+		this.id = id;
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.telefono = telefono;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}

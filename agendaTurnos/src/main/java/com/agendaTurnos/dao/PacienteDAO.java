@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import com.agendaTurnos.conexion.*;
 import com.agendaTurnos.vo.*;
 
@@ -155,4 +157,27 @@ public class PacienteDAO {
 			return paciente;	
 		}
 
+		
+		public static ArrayList<PacienteVO> obtenerPacientes() throws SQLException { 				
+			ArrayList<PacienteVO> pacientes = new ArrayList<>();
+			Connection conexion = Conexion.conectar();
+			Statement stmt = conexion.createStatement();	
+			try {
+				String query = "SELECT * FROM PACIENTES";
+				ResultSet datos = stmt.executeQuery(query); //execute query me retornará todos los datos.
+				//System.out.println("Los datos fueron mostrados correctamente.");
+				while(datos.next()) {
+					pacientes.add(new PacienteVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("email"),datos.getString("telefono")));
+					};
+			}catch(Exception e) {
+				System.out.println("ERROR.");
+				e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+			}finally {
+				stmt.close();
+				conexion.close();
+			}
+			return pacientes;	
+		}
+		
+		
 }

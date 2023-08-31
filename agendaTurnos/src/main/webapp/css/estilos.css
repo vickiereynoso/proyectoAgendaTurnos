@@ -61,103 +61,78 @@ input[type=text],[type=number],[type=email],select, textarea {
   }
 
 
-
-/* menu */
-
-#menu{
-
-    background-color: #fff;
-    border: 1px solid #dedede;
-    border-radius: 4px;
-    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-    color: #888;
-    display: block;
-/*     margin: 8px 22px 8px 22px; */
-	
-    overflow: hidden;
-    width: 100%; 
-    margin: 0;
-    padding: 0;
-
-	
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
 }
 
-#menu ul {
-    top: 0;
-    width: 100%;
-    left: 0;
-    position: fixed;
- list-style:none;
- margin:0;
- padding:0;
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-/* items del menu */
-
-#menu ul li {
- background-color: #2e518b;
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
 }
 
-/* enlaces del menu */
-
-#menu ul a {
- display:block;
- color:#fff;
- text-decoration:none;
- font-weight:400;
- font-size:15px;
- padding:10px;
- font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
- text-transform:uppercase;
- letter-spacing:1px;
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
 }
 
-/* items del menu */
-
-#menu ul li {
- position:relative;
- float:left;
- margin:0;
- padding:0;
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
 }
 
-/* efecto al pasar el ratón por los items del menu */
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
 
-#menu ul li:hover {
- background:#5b78a7;
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 
 
 
-/* menu desplegable */
 
-#menu ul ul {
- display:none;
- position:absolute;
- top:100%;
- left:0;
- background:#eee;
- padding:0;
-}
-
-/* items del menu desplegable */
-
-#menu ul ul li {
- float:none;
- width:200px
-}
-
-/* enlaces de los items del menu desplegable */
-
-#menu ul ul a {
- line-height:200%;
- padding:10px 15px;
-}
-
-/* items del menu desplegable al pasar el ratón */
-
-#menu ul li:hover > ul {
- display:block;
-}
 
