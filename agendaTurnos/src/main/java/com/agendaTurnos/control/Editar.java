@@ -48,13 +48,13 @@ public class Editar extends HttpServlet {
 	     out.print("<tr><td>Especialidad:</td><td>");  
 	     out.print("<select name='especialidad' style='width:150px'>");   
 	     for(EspecialidadVO e: EspecialidadDAO.obtenerEspecialidades()) {
-	    	 out.print("<option value="+p.getEspecialidad()+">"+ e.getEspecialidad()+"</option>");
+	    	 out.print("<option>"+ e.getEspecialidad()+"</option>");
 	     }
+	     out.print("</select>");	     
+	     out.print("</td></tr>");
 	     out.print("<tr><td>Email:</td><td><input type='email' name='email' value='"+p.getEmail()+"'/></td></tr>");  
-	     out.print("<tr><td>Teléfono:</td><td><input type='text' name='teléfono' value='"+p.getTelefono()+"'/></td></tr>");  
-	     out.print("</select>");  
-	     out.print("</td></tr>"); 
-	     out.print("<tr><td colspan='2'><input type='submit' value='Edit & Save '/></td></tr>");  
+	     out.print("<tr><td>Teléfono:</td><td><input type='text' name='telefono' value='"+p.getTelefono()+"'/></td></tr>");  
+	     out.print("<tr><td colspan='2'><input type='submit' value='Guardar cambios'/></td></tr>");  
 	     out.print("</table>");  
 	     out.print("</form>");         
 	     out.close(); 

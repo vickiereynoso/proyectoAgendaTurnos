@@ -42,10 +42,10 @@ public class ListarProfesionales extends HttpServlet {
 		   
 		profesionales = ProfesionalDAO.obtenerProfesionales();  
 		 
-        out.print("<table cellpadding=\"5\" cellspacing=\"5\" border=\"1\">");
-        out.print("<tr bgcolor=\"lightblue\"><th>ID</th><th>DNI</th><th>NOMBRE</th><th>APELLIDO</th><th>ESPECIALIDAD</th><th>EMAIL</th><th>TELÉFONO</th><th>EDITAR</th><th>ELIMINAR</th></tr>");  
+        out.print("<table cellpadding='5' cellspacing='5' border='1' width='100%'>");
+        out.print("<tr bgcolor='lightblue'><th>ID</th><th>DNI</th><th>NOMBRE</th><th>APELLIDO</th><th>ESPECIALIDAD</th><th>EMAIL</th><th>TELÉFONO</th><th>EDITAR</th><th>ELIMINAR</th></tr>");  
         for(ProfesionalVO p : profesionales){  
-         out.print("<tr bgcolor=\"lightgrey\"><td>"+p.getId()+"</td><td>"+p.getDni()+"</td><td>"+p.getNombre()+"</td><td>"+p.getApellido()+"</td><td>"+p.getEspecialidad()+"</td><td>"+p.getEmail()+"</td><td>"+p.getTelefono()+"</td><td><a href='Editar?id="+p.getId()+"'>Editar</a></td>"
+         out.print("<tr bgcolor='lightgrey'><td>"+p.getId()+"</td><td>"+p.getDni()+"</td><td>"+p.getNombre()+"</td><td>"+p.getApellido()+"</td><td>"+p.getEspecialidad()+"</td><td>"+p.getEmail()+"</td><td>"+p.getTelefono()+"</td><td><a href='Editar?id="+p.getId()+"'>Editar</a></td>"
          		+"<td><a href='DeleteServlet?id="+p.getId()+"'>Eliminar</a></td></tr>");  
         }  
 		 out.print("</table>");  

@@ -76,6 +76,12 @@
   	<description></description>
   	<servlet-class>com.agendaTurnos.control.Editar</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Editar2</servlet-name>
+  	<display-name>Editar2</display-name>
+  	<description></description>
+  	<servlet-class>com.agendaTurnos.control.Editar2</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Control1</servlet-name>
   	<url-pattern>/Control1</url-pattern>
@@ -123,5 +129,9 @@
   <servlet-mapping>
   	<servlet-name>Editar</servlet-name>
   	<url-pattern>/Editar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Editar2</servlet-name>
+  	<url-pattern>/Editar2</url-pattern>
   </servlet-mapping>
 </web-app>

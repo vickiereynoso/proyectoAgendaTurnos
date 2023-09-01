@@ -13,8 +13,7 @@ public class ProfesionalVO extends PacienteVO {
 
 	
 	
-	public ProfesionalVO(int id, int dni, String nombre, String apellido, String email, String telefono,
-			String especialidad) {
+	public ProfesionalVO(int id, int dni, String nombre, String apellido, String especialidad, String email, String telefono) {
 		super(id, dni, nombre, apellido, email, telefono);
 		this.especialidad = especialidad;
 	}

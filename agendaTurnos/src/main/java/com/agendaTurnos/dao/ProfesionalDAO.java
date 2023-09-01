@@ -83,21 +83,48 @@ public class ProfesionalDAO {
 			
 			//MODIFICAR REGISTRO:
 			
-			public static void modificar(ProfesionalVO profesional) {
+			public static int modificar(ProfesionalVO p) {
+//				int exito = 0;
+				int status=0;
 				try {
 					Connection conexion = Conexion.conectar();
-					String sql = "UPDATE PACIENTES SET DNI = '" + profesional.getDni() +"' , NOMBRE = '" 
-							+ profesional.getNombre()+"', APELLIDO = '"+ profesional.getApellido()+ "', ESPECIALIDAD = '"+ profesional.getEspecialidad() +"', EMAIL = '" + profesional.getEmail()+ "', TELEFONO = '" + profesional.getTelefono()+ "'WHERE ID = " + profesional.getId();
-					Statement stmt = conexion.createStatement();
-					stmt.execute(sql);
-					System.out.println("Profesional modificado.");
-					stmt.close();
+//					String sql = "UPDATE PROFESIONALES SET DNI = " + profesional.getDni() +" , NOMBRE = '" 		
+//					String sql = "UPDATE PROFESIONALES SET DNI=?, NOMBRE=?, APELLIDO=?, ESPECIALIDAD=?, EMAIL=?, TELEFONO=? WHERE ID=?";
+//					PreparedStatement stmt = conexion.prepareStatement(sql);
+					
+					PreparedStatement stmt= conexion.prepareStatement("UPDATE PROFESIONALES SET DNI=?, NOMBRE=?, APELLIDO=?, ESPECIALIDAD=?, EMAIL=?, TELEFONO=? WHERE ID=?");
+					
+					stmt.setInt(1, p.getDni());
+					stmt.setString(2, p.getNombre());
+					stmt.setString(3, p.getApellido());
+					stmt.setString(4, p.getEspecialidad());
+					stmt.setString(5, p.getEmail());
+					stmt.setString(6, p.getTelefono());		
+					stmt.setInt(7, p.getId());
+					
+					status= stmt.executeUpdate(); 
+					stmt.executeUpdate();
+					//stmt.execute();
+					System.out.println(stmt.executeUpdate());
+					//stmt.close();
 					conexion.close();
+					
+//					Statement stmt = conexion.createStatement();
+//					stmt.execute(sql);
+//					System.out.println("Modificación exitosa.");
+//					stmt.close();
+//					conexion.close();
+//				    exito = 1;
 				}catch(Exception e) {
 					System.out.println("No se pudo modificar el profesional.");
 					e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
 				}
+				return status;
 			}
+			
+			
+ 
+			
 			
 			
 			//MOSTRAR/LISTAR REGISTRO:
@@ -171,7 +198,7 @@ public class ProfesionalDAO {
 					//System.out.println("Los datos fueron mostrados correctamente.");
 					while(datos.next() && profesional == null) {
 						if(datos.getInt("id") == id) {			
-							profesional = new ProfesionalVO(datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono"));
+							profesional = new ProfesionalVO(datos.getInt("id"),datos.getInt("dni"),datos.getString("nombre"),datos.getString("apellido"),datos.getString("especialidad"),datos.getString("email"),datos.getString("telefono"));
 							}
 						};
 				}catch(Exception e) {
